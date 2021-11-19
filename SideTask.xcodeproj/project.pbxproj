@@ -103,12 +103,11 @@
 			children = (
 				8238412E2746B123004B325D /* AppDelegate.swift */,
 				823841302746B123004B325D /* SceneDelegate.swift */,
-				823841322746B123004B325D /* ViewController.swift */,
-				823841342746B123004B325D /* Main.storyboard */,
-				8238413A2746B126004B325D /* Assets.xcassets */,
-				8238413C2746B126004B325D /* LaunchScreen.storyboard */,
+				823841622746B2AD004B325D /* Controllers */,
+				823841642746B2E5004B325D /* Model */,
+				823841632746B2D3004B325D /* Views */,
+				823841652746B30B004B325D /* Supporting Files */,
 				8238413F2746B126004B325D /* Info.plist */,
-				823841372746B123004B325D /* SideTask.xcdatamodeld */,
 			);
 			path = SideTask;
 			sourceTree = "<group>";
@@ -128,6 +127,39 @@
 				823841542746B126004B325D /* SideTaskUITestsLaunchTests.swift */,
 			);
 			path = SideTaskUITests;
+			sourceTree = "<group>";
+		};
+		823841622746B2AD004B325D /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				823841322746B123004B325D /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		823841632746B2D3004B325D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				823841342746B123004B325D /* Main.storyboard */,
+				8238413C2746B126004B325D /* LaunchScreen.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		823841642746B2E5004B325D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				823841372746B123004B325D /* SideTask.xcdatamodeld */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		823841652746B30B004B325D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8238413A2746B126004B325D /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -446,6 +478,7 @@
 				DEVELOPMENT_TEAM = 7LES938Q7J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SideTask/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SideTask;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -474,6 +507,7 @@
 				DEVELOPMENT_TEAM = 7LES938Q7J;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = SideTask/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = SideTask;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
