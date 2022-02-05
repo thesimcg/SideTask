@@ -17,6 +17,7 @@
 		823841492746B126004B325D /* SideTaskTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823841482746B126004B325D /* SideTaskTests.swift */; };
 		823841532746B126004B325D /* SideTaskUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823841522746B126004B325D /* SideTaskUITests.swift */; };
 		823841552746B126004B325D /* SideTaskUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823841542746B126004B325D /* SideTaskUITestsLaunchTests.swift */; };
+		824A2D2D277F48710069698E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824A2D2C277F48710069698E /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		8238414E2746B126004B325D /* SideTaskUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SideTaskUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		823841522746B126004B325D /* SideTaskUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideTaskUITests.swift; sourceTree = "<group>"; };
 		823841542746B126004B325D /* SideTaskUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideTaskUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		824A2D2C277F48710069698E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 			isa = PBXGroup;
 			children = (
 				823841322746B123004B325D /* ViewController.swift */,
+				824A2D2C277F48710069698E /* DetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 			files = (
 				823841332746B123004B325D /* ViewController.swift in Sources */,
 				823841392746B123004B325D /* SideTask.xcdatamodeld in Sources */,
+				824A2D2D277F48710069698E /* DetailViewController.swift in Sources */,
 				8238412F2746B123004B325D /* AppDelegate.swift in Sources */,
 				823841312746B123004B325D /* SceneDelegate.swift in Sources */,
 			);

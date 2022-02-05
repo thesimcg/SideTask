@@ -40,7 +40,10 @@ class ViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Category", for: indexPath)
+        
         cell.textLabel?.text = categories[indexPath.row].displayTitle
+        cell.textLabel?.font = UIFont.boldSystemFont(ofSize: 20)
+        
         return cell
     }
 
@@ -66,7 +69,6 @@ class ViewController: UITableViewController {
 //            } else {
 //                newCategory.displayTitle = titleTextField.text!
 //            }
-            print(newCategory.uniqueID!)
             
             for category in self.categories {
                 category.displayOrder += 1
@@ -91,8 +93,58 @@ class ViewController: UITableViewController {
         
     }
     
+    //MARK: - Did Select Row
     
-    //MARK: - Delete Category
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if !isEditing {
+            
+            performSegue(withIdentifier: "goToDetail", sender: self)
+
+        } else {
+
+            var titleTextField = UITextField()
+
+                    let alert = UIAlertController(title: "Edit", message: nil, preferredStyle: .alert)
+
+                    let action = UIAlertAction(title: "Confirm", style: .default) { (action) in
+
+                        self.categories[indexPath.row].displayTitle = titleTextField.text!
+                        self.saveCategories()
+                    }
+
+                    alert.addAction(action)
+
+                    let cancel = UIAlertAction(title: "Cancel", style: .cancel)
+                    alert.addAction(cancel)
+
+                    alert.addTextField { (titleField) in
+                        titleTextField = titleField
+                        titleField.autocapitalizationType = .sentences
+                        
+                        if let name = self.categories[indexPath.row].displayTitle {
+                            titleField.placeholder = "\(String(describing: name))"
+                            titleField.text = "\(String(describing: name))"
+                        } else {
+                            titleField.placeholder = "New Name"
+                        }
+                    }
+
+                    present(alert, animated: true)
+        }
+    }
+    
+    //MARK: - Segue
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destinationVC = segue.destination as! DetailViewController
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+            destinationVC.selectedCategory = categories[indexPath.row]
+        }
+    }
+    
+    //MARK: - Delete Row
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == UITableViewCell.EditingStyle.delete {
@@ -134,7 +186,7 @@ class ViewController: UITableViewController {
         saveCategories()
     }
     
-    //MARK: - Reorder Categories
+    //MARK: - Reorder
     
     func reorderCategories() {
         
@@ -148,8 +200,7 @@ class ViewController: UITableViewController {
         
         categories = newArrayOrder
     }
-    
-    
+        
     //MARK: - Save and Load
         
     func saveCategories() {
@@ -177,4 +228,3 @@ class ViewController: UITableViewController {
     }
 
 }
-

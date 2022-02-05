@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19461" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="19574" systemVersion="21A559" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="displayOrder" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="displayTitle" optional="YES" attributeType="String"/>
         <attribute name="uniqueID" optional="YES" attributeType="String"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="newRelationship" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SideTask" inverseName="newRelationship" inverseEntity="SideTask"/>
+        <relationship name="childSideTask" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="SideTask" inverseName="parentCategory" inverseEntity="SideTask"/>
     </entity>
     <entity name="SideTask" representedClassName="SideTask" syncable="YES" codeGenerationType="class">
         <attribute name="createdAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
@@ -15,7 +15,7 @@
         <attribute name="taskGroup" optional="YES" attributeType="String"/>
         <attribute name="uniqueID" optional="YES" attributeType="String"/>
         <attribute name="updatedAt" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
-        <relationship name="newRelationship" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Category" inverseName="newRelationship" inverseEntity="Category"/>
+        <relationship name="parentCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="childSideTask" inverseEntity="Category"/>
     </entity>
     <elements>
         <element name="Category" positionX="-395.407470703125" positionY="-222.2057800292969" width="115.4006958007812" height="133"/>
