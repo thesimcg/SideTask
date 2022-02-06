@@ -13,6 +13,7 @@ class ViewController: UITableViewController {
     @IBOutlet weak var editButton: UIBarButtonItem!
     
     var categories = [Category]()
+    
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
@@ -22,12 +23,10 @@ class ViewController: UITableViewController {
         request.sortDescriptors = [NSSortDescriptor(key: "displayOrder", ascending: true)]
         loadCategories(with: request)
         
+        print("Categories Check:")
         for category in self.categories {
-            print(category.uniqueID ?? "NULL")
             print(category.displayTitle ?? "NULL")
-            print(category.displayOrder)
-            print(category.createdAt ?? "NULL")
-            
+//            print(category.displayOrder)
         }
         
     }
@@ -226,5 +225,4 @@ class ViewController: UITableViewController {
         
         tableView.reloadData()
     }
-
 }

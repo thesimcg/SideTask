@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		822F753C27AFF46C00A79F69 /* SideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822F753B27AFF46C00A79F69 /* SideViewController.swift */; };
 		8238412F2746B123004B325D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8238412E2746B123004B325D /* AppDelegate.swift */; };
 		823841312746B123004B325D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823841302746B123004B325D /* SceneDelegate.swift */; };
 		823841332746B123004B325D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 823841322746B123004B325D /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		822F753B27AFF46C00A79F69 /* SideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideViewController.swift; sourceTree = "<group>"; };
 		8238412B2746B123004B325D /* SideTask.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SideTask.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8238412E2746B123004B325D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		823841302746B123004B325D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 			children = (
 				823841322746B123004B325D /* ViewController.swift */,
 				824A2D2C277F48710069698E /* DetailViewController.swift */,
+				822F753B27AFF46C00A79F69 /* SideViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				824A2D2D277F48710069698E /* DetailViewController.swift in Sources */,
 				8238412F2746B123004B325D /* AppDelegate.swift in Sources */,
 				823841312746B123004B325D /* SceneDelegate.swift in Sources */,
+				822F753C27AFF46C00A79F69 /* SideViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
