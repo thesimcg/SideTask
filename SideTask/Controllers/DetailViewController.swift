@@ -61,12 +61,10 @@ class DetailViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if !isEditing {
-            
             saveSideTasks()
             tableView.deselectRow(at: indexPath, animated: true)
 
         } else {
-
             var titleTextField = UITextField()
 
                     let alert = UIAlertController(title: "Edit", message: nil, preferredStyle: .alert)

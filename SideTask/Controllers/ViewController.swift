@@ -96,7 +96,7 @@ class ViewController: UITableViewController {
     //MARK: - Did Select Row
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+
         if !isEditing {
             
             performSegue(withIdentifier: "goToDetail", sender: self)
