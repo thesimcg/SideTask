@@ -130,7 +130,7 @@
             </objects>
             <point key="canvasLocation" x="710.14492753623199" y="117.85714285714285"/>
         </scene>
-        <!--Side-->
+        <!--Side View Controller-->
         <scene sceneID="vNv-e3-0eY">
             <objects>
                 <viewController id="eIr-1H-x2Z" customClass="SideViewController" customModule="SideTask" customModuleProvider="target" sceneMemberID="viewController">
@@ -138,13 +138,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Swipe up for a random SideTask" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHR-XB-Zch">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vHR-XB-Zch">
                                 <rect key="frame" x="32" y="348" width="350" height="200"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="4Ff-sX-L1P"/>
                                     <constraint firstAttribute="width" constant="350" id="6lS-SW-mxq"/>
                                 </constraints>
+                                <string key="text">Swipe up for a random SideTask
+
+Swipe right to filter by Category</string>
                                 <color key="textColor" systemColor="labelColor"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -154,18 +157,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <gestureRecognizers/>
                         <constraints>
-                            <constraint firstItem="dSg-CH-qdX" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vHR-XB-Zch" secondAttribute="trailing" constant="20" id="1y3-R7-zVN"/>
-                            <constraint firstItem="dSg-CH-qdX" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vHR-XB-Zch" secondAttribute="bottom" constant="50" id="5d5-Hn-DyJ"/>
-                            <constraint firstItem="vHR-XB-Zch" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dSg-CH-qdX" secondAttribute="leading" constant="20" id="KCw-OJ-NqQ"/>
+                            <constraint firstItem="dSg-CH-qdX" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="vHR-XB-Zch" secondAttribute="trailing" constant="10" id="1y3-R7-zVN"/>
+                            <constraint firstItem="dSg-CH-qdX" firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="vHR-XB-Zch" secondAttribute="bottom" constant="10" id="5d5-Hn-DyJ"/>
+                            <constraint firstItem="vHR-XB-Zch" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dSg-CH-qdX" secondAttribute="leading" constant="10" id="KCw-OJ-NqQ"/>
                             <constraint firstItem="vHR-XB-Zch" firstAttribute="centerY" secondItem="CuP-zH-heP" secondAttribute="centerY" id="M2y-lm-PAw"/>
                             <constraint firstItem="vHR-XB-Zch" firstAttribute="centerX" secondItem="CuP-zH-heP" secondAttribute="centerX" id="ic5-wj-OY7"/>
-                            <constraint firstItem="vHR-XB-Zch" firstAttribute="top" relation="greaterThanOrEqual" secondItem="dSg-CH-qdX" secondAttribute="top" constant="50" id="vDJ-Jk-dwQ"/>
+                            <constraint firstItem="vHR-XB-Zch" firstAttribute="top" relation="greaterThanOrEqual" secondItem="dSg-CH-qdX" secondAttribute="top" constant="10" id="vDJ-Jk-dwQ"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="OQx-zs-UtN" appends="YES" id="7AF-JO-9SR"/>
+                            <outletCollection property="gestureRecognizers" destination="nfe-uE-Rdf" appends="YES" id="oMv-Gx-gTv"/>
                         </connections>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Side" image="repeat" catalog="system" id="Nem-yS-Bju"/>
+                    <navigationItem key="navigationItem" id="S7N-V5-21k"/>
                     <connections>
                         <outlet property="textView" destination="vHR-XB-Zch" id="sX4-4e-ZLO"/>
                     </connections>
@@ -176,8 +180,13 @@
                         <action selector="swipeUp:" destination="eIr-1H-x2Z" id="lco-Qe-tdd"/>
                     </connections>
                 </swipeGestureRecognizer>
+                <swipeGestureRecognizer direction="right" id="nfe-uE-Rdf">
+                    <connections>
+                        <action selector="swipeRight:" destination="eIr-1H-x2Z" id="eCf-7B-fAF"/>
+                    </connections>
+                </swipeGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="708.69565217391312" y="847.76785714285711"/>
+            <point key="canvasLocation" x="1618.840579710145" y="847.76785714285711"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="74Y-xF-9CV">
@@ -185,17 +194,37 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="5sJ-8g-Izg" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ieu-Lw-zQT">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="cE3-t5-ED1" kind="relationship" relationship="viewControllers" id="xXd-wC-3af"/>
-                        <segue destination="eIr-1H-x2Z" kind="relationship" relationship="viewControllers" id="O94-b5-fyc"/>
+                        <segue destination="QQC-Tf-2jN" kind="relationship" relationship="viewControllers" id="O94-b5-fyc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zzY-do-1M1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-236" y="118"/>
+        </scene>
+        <!--Side-->
+        <scene sceneID="YZQ-1Y-y4r">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="QQC-Tf-2jN" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Side" image="repeat" catalog="system" id="Nem-yS-Bju"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lMH-I1-0PB">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eIr-1H-x2Z" kind="relationship" relationship="rootViewController" id="K3N-3U-LQA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DOh-xO-4qW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="708.69565217391312" y="847.76785714285711"/>
         </scene>
     </scenes>
     <resources>

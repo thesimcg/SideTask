@@ -12,28 +12,30 @@ class SideViewController: UIViewController {
 
     @IBOutlet var textView: UITextView!
     
-    var shuffleTasks = [SideTask]()
+    var categories = [Category]()
+    var sideTasks = [SideTask]()
+    var categoryList = [String]()
     var shuffleList = [String]()
+    var selectedIndex = 0
     
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let request : NSFetchRequest<SideTask> = SideTask.fetchRequest()
+        loadSideTasks()
+        let request : NSFetchRequest<Category> = Category.fetchRequest()
         request.sortDescriptors = [NSSortDescriptor(key: "displayOrder", ascending: true)]
-        loadShuffleTasks(with: request)
-        
-        print("Shuffle Tasks:")
-        for sideTask in self.shuffleTasks {
-            print(sideTask.displayTitle ?? "NULL")
-        }
+        loadCategories(with: request)
+        title = categoryList[selectedIndex]
     }
     
 
+    //MARK: - Swipe Up
+    
     @IBAction func swipeUp(_ sender: UISwipeGestureRecognizer) {
         
-        loadShuffleTasks()
+        loadSideTasks()
         shuffleList.shuffle()
         if shuffleList.count == 0 {
             textView.text = "Add SideTasks first"
@@ -43,22 +45,61 @@ class SideViewController: UIViewController {
         }
     }
 
+
+    @IBAction func swipeRight(_ sender: UISwipeGestureRecognizer) {
+        
+        selectedIndex += 1
+        
+        if selectedIndex == categoryList.count{
+            selectedIndex = 0
+        }
+        title = categoryList[selectedIndex]
+    }
     
-    //MARK: - Load
     
-    func loadShuffleTasks(with request: NSFetchRequest<SideTask> = SideTask.fetchRequest(), predicate: NSPredicate? = nil) {
+    
+    //MARK: - Load Categories and SideTasks
+    
+    func loadSideTasks(with request: NSFetchRequest<SideTask> = SideTask.fetchRequest(), predicate: NSPredicate? = nil) {
         
         request.predicate = predicate
         
         do {
-            shuffleTasks = try context.fetch(request)
+            sideTasks = try context.fetch(request)
         } catch {
             print("Error fetching data from context: \(error)")
         }
         
         shuffleList.removeAll()
-        for sideTask in shuffleTasks{
-            shuffleList.append(sideTask.displayTitle ?? "Empty")
+        
+        if title == "All Categories" && selectedIndex == 0 {
+            for sideTask in sideTasks{
+                shuffleList.append(sideTask.displayTitle ?? "Empty")
+           }
+        } else {
+            for sideTask in sideTasks{
+                if sideTask.parentCategory?.displayTitle == title {
+                    shuffleList.append(sideTask.displayTitle ?? "Empty")
+                }
+            }
+        }
+    }
+    
+    func loadCategories(with request: NSFetchRequest<Category> = Category.fetchRequest(), predicate: NSPredicate? = nil) {
+        
+        request.predicate = predicate
+        
+        do {
+            categories = try context.fetch(request)
+            
+        } catch {
+            print("Error loading categories: \(error)")
+        }
+        
+        categoryList.removeAll()
+        categoryList.append("All Categories")
+        for category in categories{
+            categoryList.append(category.displayTitle ?? "Empty")
        }
     }
 }

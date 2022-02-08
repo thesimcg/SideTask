@@ -23,12 +23,6 @@ class ViewController: UITableViewController {
         request.sortDescriptors = [NSSortDescriptor(key: "displayOrder", ascending: true)]
         loadCategories(with: request)
         
-        print("Categories Check:")
-        for category in self.categories {
-            print(category.displayTitle ?? "NULL")
-//            print(category.displayOrder)
-        }
-        
     }
     
     //MARK: - TableView Setup
@@ -63,11 +57,6 @@ class ViewController: UITableViewController {
             newCategory.displayOrder = 0
             newCategory.uniqueID = "STC\(String(Date().hashValue))"
             newCategory.displayTitle = titleTextField.text!
-//            if titleTextField.text?.isEmpty = nil {
-//                newCategory.displayTitle = newCategory.uniqueID
-//            } else {
-//                newCategory.displayTitle = titleTextField.text!
-//            }
             
             for category in self.categories {
                 category.displayOrder += 1
